@@ -20,3 +20,20 @@ function generateColor() {
   color5.style.backgroundColor = generateColor();
   let color6 = document.getElementById('ball-color-6');
   color6.style.backgroundColor = generateColor();
+
+  let text = document.getElementById('rgb-color');
+  text.innerText = color2.style.backgroundColor;
+
+  let circlesDad = document.getElementById('circles').children;
+  for (let index = 0; index < circlesDad.length; index += 1) {
+    circlesDad[index].addEventListener('click', function() {
+        if (circlesDad[index].id == 'ball-color-2') {
+            let result = document.getElementById('answer');
+            result.innerText = "Acertou!";
+        } else {
+            let result = document.getElementById('answer');
+            result.innerText = "Errou! Tente novamente!";
+        }
+    }
+    )
+  }
