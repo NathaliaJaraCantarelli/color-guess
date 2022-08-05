@@ -37,3 +37,8 @@ function generateColor() {
     }
     )
   }
+
+  let buttonReset = document.getElementById('reset-game');
+  buttonReset.addEventListener('click', function() {
+    location.reload();
+  })
