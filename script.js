@@ -23,22 +23,32 @@ function generateColor() {
 
   let text = document.getElementById('rgb-color');
   text.innerText = color2.style.backgroundColor;
-
+  let result = document.getElementById('answer');
+  
   let circlesDad = document.getElementById('circles').children;
+  let scoreTotal = document.getElementById('score');
+  let hits = 0;
+
   for (let index = 0; index < circlesDad.length; index += 1) {
     circlesDad[index].addEventListener('click', function() {
-        if (circlesDad[index].id == 'ball-color-2') {
-            let result = document.getElementById('answer');
+        if (circlesDad[index].id == 'ball-color-2') { 
             result.innerText = "Acertou!";
+            hits += 3;
+            scoreTotal.innerText = 'Pontuação: ' + hits;
         } else {
-            let result = document.getElementById('answer');
             result.innerText = "Errou! Tente novamente!";
         }
-    }
-    )
+    })
   }
 
   let buttonReset = document.getElementById('reset-game');
   buttonReset.addEventListener('click', function() {
-    location.reload();
+    color1.style.backgroundColor = generateColor();  
+    color2.style.backgroundColor = generateColor();
+    color3.style.backgroundColor = generateColor();
+    color4.style.backgroundColor = generateColor();
+    color5.style.backgroundColor = generateColor();
+    color6.style.backgroundColor = generateColor();
+    text.innerText = color2.style.backgroundColor;
+    result.innerText = "Escolha uma cor: ";
   })
